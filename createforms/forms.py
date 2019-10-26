@@ -1,4 +1,5 @@
 from django import forms
+from .models import snippet
 
 class Studentform(forms.Form):
 
@@ -7,3 +8,9 @@ class Studentform(forms.Form):
     category = forms.ChoiceField(choices = [('question', 'Question'),('other','Other')])  
     subject = forms.CharField(required = False)
     body = forms.CharField(widget=forms.Textarea)
+
+
+class snippetform(forms.ModelForm):
+    class Meta:
+        model = snippet
+        fields = ('name','body')
